@@ -303,11 +303,12 @@
 		    <artifactId>httpclient</artifactId>
 		    <version>4.5.3</version>
 		</dependency>
-		<dependency>
-		    <groupId>com.google.code.kaptcha</groupId>
-		    <artifactId>kaptcha</artifactId>
-		    <version>2.3</version>
-		</dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.code.kaptcha/kaptcha -->
+        <dependency>
+            <groupId>com.google.code.kaptcha</groupId>
+            <artifactId>kaptcha</artifactId>
+            <version>2.3</version>
+        </dependency>
 		<dependency>
 		    <groupId>org.freemarker</groupId>
 		    <artifactId>freemarker</artifactId>
@@ -317,16 +318,22 @@
   </dependencyManagement>
   
   <build>
-  	<resources>
-       <resource>
-           <directory>src/main/resources</directory>
-           <includes>
-               <include>**/*.xml</include>
-               <include>**/*.properties</include>
-           </includes>
-           <filtering>true</filtering>
-       </resource>
-   </resources>
+      <resources>
+          <resource>
+              <directory>src/main/resources</directory>
+              <includes>
+                  <include>**/*.xml</include>
+                  <include>**/*.properties</include>
+              </includes>
+              <filtering>true</filtering>
+          </resource>
+      </resources>
+      <testResources>
+          <testResource>
+              <directory>${project.basedir}/src/test/resources</directory>
+              <filtering>true</filtering>
+          </testResource>
+      </testResources>
    <pluginManagement>
     <plugins>
     	<plugin>  
@@ -395,9 +402,9 @@
   				<p.redis.master.port>7000</p.redis.master.port>
   				<p.redis.master.pass>none</p.redis.master.pass>
   				<p.jdbc.driver>com.mysql.jdbc.Driver</p.jdbc.driver>
-  				<p.master.jdbc.url>jdbc:mysql://192.168.198.131:3306/shiro?failOverReadOnly=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;allowMultiQueries=true</p.master.jdbc.url>
+  				<p.master.jdbc.url>jdbc:mysql://47.98.137.83:3306/shiro?failOverReadOnly=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;allowMultiQueries=true</p.master.jdbc.url>
   				<p.master.jdbc.username>root</p.master.jdbc.username>
-  				<p.master.jdbc.password>mark</p.master.jdbc.password>
+  				<p.master.jdbc.password>qin@lxw529</p.master.jdbc.password>
   			</properties>
   		</profile>
   </profiles>
