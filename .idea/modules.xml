@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/mq-parent/activemq-demo Maven Webapp/activemq-demo.iml" filepath="$PROJECT_DIR$/mq-parent/activemq-demo Maven Webapp/activemq-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mq-parent/kafka-demo Maven Webapp/kafka-demo.iml" filepath="$PROJECT_DIR$/mq-parent/kafka-demo Maven Webapp/kafka-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mq-parent/mq-parent.iml" filepath="$PROJECT_DIR$/mq-parent/mq-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mq-parent/rabbitmq-demo Maven Webapp/rabbitmq-demo.iml" filepath="$PROJECT_DIR$/mq-parent/rabbitmq-demo Maven Webapp/rabbitmq-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mq-parent/rocketmq-demo Maven Webapp/rocketmq-demo.iml" filepath="$PROJECT_DIR$/mq-parent/rocketmq-demo Maven Webapp/rocketmq-demo.iml" />
+    </modules>
+  </component>
+</project>

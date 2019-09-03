@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="kafka-demo:war">
+    <output-path>$PROJECT_DIR$/mq-parent/kafka-demo Maven Webapp/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>kafka-demo</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="kafka-demo.war">
+      <element id="artifact" artifact-name="kafka-demo:war exploded" />
+    </root>
+  </artifact>
+</component>

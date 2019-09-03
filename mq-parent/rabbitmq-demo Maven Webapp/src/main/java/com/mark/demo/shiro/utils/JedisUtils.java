@@ -1231,7 +1231,9 @@ public class JedisUtils
         {
         	//JedisPool pool=jedisSlotBasedConnectionHandler.getNodes().get(jedis.getClient().getHost()+":"+jedis.getClient().getPort());
             //pool.returnResource(jedis);
-        	jedis.close();
+            if (jedis != null) {
+                jedis.close();
+            }
         	//jedisSlotBasedConnectionHandler.returnConnection(jedis);
         }
         catch (JedisHandleException e)

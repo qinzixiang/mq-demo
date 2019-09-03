@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="activemq-demo:war">
+    <output-path>$PROJECT_DIR$/mq-parent/activemq-demo Maven Webapp/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>activemq-demo</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="activemq-demo.war">
+      <element id="artifact" artifact-name="activemq-demo:war exploded" />
+    </root>
+  </artifact>
+</component>

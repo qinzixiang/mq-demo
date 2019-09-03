@@ -17,43 +17,40 @@ import com.mark.demo.shiro.session.RedisSessionManager;
 
 
 @Controller
-public class KaptchaController
-{
-    private static final Integer timeOut = 300;      // 五分钟
-    
+public class KaptchaController {
+    // 五分钟
+    private static final Integer timeOut = 300;
+
     @Autowired
-    private Producer             producer;
-    
+    private Producer producer;
+
     @Autowired
     private RedisSessionManager redisSessionManager;
-    
+
     /**
      * 生成验证码
+     *
      * @param request
      * @param response
      * @return
      * @throws Exception
      */
     @RequestMapping("/captcha")
-    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception
-    {
+    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
         response.setDateHeader("Expires", 0);
         response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
         response.addHeader("Cache-Control", "post-check=0, pre-check=0");
         response.setHeader("Prama", "no-cache");
         response.setContentType("image/jpeg");
         String captext = producer.createText();
-        redisSessionManager.remove(request, RedisSessionManager.SessionKey.CAPTCHA);
+        RedisSessionManager.remove(request, RedisSessionManager.SessionKey.CAPTCHA);
         redisSessionManager.put(request, RedisSessionManager.SessionKey.CAPTCHA, captext, timeOut);
         BufferedImage bi = producer.createImage(captext);
         ServletOutputStream out = response.getOutputStream();
         ImageIO.write(bi, "jpg", out);
-        try
-        {
+        try {
             out.flush();
-        }
-        finally
-        {
+        } finally {
             out.close();
         }
         return null;
