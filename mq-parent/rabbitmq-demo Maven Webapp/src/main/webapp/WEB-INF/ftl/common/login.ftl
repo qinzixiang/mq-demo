@@ -1,4 +1,4 @@
-<#assign base=request.contextPath />
+<#assign base=request.getContextPath() />
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" " http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http:/www.w3.org/1999/xhtml">  
 <head>  
@@ -42,8 +42,9 @@
 	</div>  
 </body>  
 <script type="text/javascript">       
-	var base = document.getElementById("base").href;
-	document.onkeydown = function(e){  
+	// var base = document.getElementById("base").href;
+	var base = "";
+	document.onkeydown = function(e){
 	    var event = e || window.event;    
 	    var code = event.keyCode || event.which || event.charCode;  
 	    if (code == 13) {  
@@ -69,7 +70,7 @@
 	            //ajax异步提交    
 	           $.ajax({              
 	                  type:"POST",   //post提交方式默认是get  
-	                  url:base+"/submitlogin",
+	                  url:base+"/common/login/submitlogin",
 	                  data:$("#loginForm").serialize(),   //序列化                 
 	                  error:function(request) {      // 设置表单提交出错                   
 	                      $("#showMsg").html(request);  //登录错误提示信息  

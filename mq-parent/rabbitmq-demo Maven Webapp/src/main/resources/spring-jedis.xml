@@ -10,6 +10,7 @@
     <context:property-placeholder ignore-unresolvable="true" location="classpath:redis.properties"/>
 
     <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="minIdle" value="${redis.minIdle}"/>
         <property name="maxIdle" value="${redis.maxIdle}"/>
         <!-- 最大能够保持idel状态的对象数  -->
         <property name="maxTotal" value="${redis.maxTotal}"/>
@@ -19,17 +20,23 @@
     </bean>
 
     <!-- shardedJedisPool -->
-    <bean id="shardedJedisPool" class="redis.clients.jedis.ShardedJedisPool" destroy-method="destroy">
+    <!--<bean id="shardedJedisPool" class="redis.clients.jedis.ShardedJedisPool" destroy-method="destroy">
         <constructor-arg name="poolConfig" ref="jedisPoolConfig"/>
         <constructor-arg name="shards">
             <list>
                 <bean name="master" class="redis.clients.jedis.JedisShardInfo">
-                    <constructor-arg name="host" value="${redis.master.host}"/>
-                    <constructor-arg name="port" value="${redis.master.port}"/>
-                    <!-- <property name="password" value="${redis.master.pass}"/> -->
+                    <constructor-arg index="0" name="host" value="${redis.master.host}"/>
+                    <constructor-arg index="1" name="port" type="int" value="${redis.master.port}"/>
+&lt;!&ndash;                     <property name="password" value="${redis.master.pass}"/>&ndash;&gt;
                 </bean>
             </list>
         </constructor-arg>
+    </bean>-->
+    <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+        <constructor-arg name="poolConfig" ref="jedisPoolConfig"/>
+        <constructor-arg name="host" value="${redis.master.host}"/>
+        <constructor-arg name="port" value="${redis.master.port}"/>
+        <constructor-arg name="timeout" value="${redis.timeout}"/>
+        <constructor-arg name="password" value="${redis.master.pass}"/>
     </bean>
-
 </beans>

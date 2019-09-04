@@ -6,7 +6,7 @@
   <head>
     <title>menu</title>
    <base id="base" href="${contextPath}">  
-   <#include "/common/common.ftl">
+   <#include "../../common/common.ftl">
    <script type="text/javascript"  charset="UTF-8">
    var searchUrl = "${contextPath}/admins/message/list/data";
    var updateUrl = "${contextPath}/departments/update.do";

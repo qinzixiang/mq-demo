@@ -17,9 +17,9 @@ import com.mark.demo.shiro.constant.CharsetConst;
 import com.mark.demo.shiro.exception.JedisHandleException;
 
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.ShardedJedisPool;
 import redis.clients.jedis.exceptions.JedisDataException;
-
 
 public class JedisUtils
 {
@@ -34,7 +34,8 @@ public class JedisUtils
     
     // 从spring引入，可以考虑编码实现，避免对spring的依赖
     //public static JedisSlotBasedConnectionHandler jedisSlotBasedConnectionHandler = SpringUtils.getBean(JedisSlotBasedConnectionHandler.class);
-    private static ShardedJedisPool pool= SpringUtils.getBean(ShardedJedisPool.class);
+//    private static ShardedJedisPool pool= SpringUtils.getBean(ShardedJedisPool.class);
+    private static JedisPool pool= SpringUtils.getBean(JedisPool.class);
     /**
      * 根据键值从Redis中获取字符串值
      * @param key 缓存键值
@@ -963,7 +964,7 @@ public class JedisUtils
     /**
      * 移除Map缓存中的值
      * @param key 键
-     * @param value 值
+     * @param mapKey 值
      * @return
      */
     public static long mapRemove(String key, String mapKey)
@@ -990,7 +991,7 @@ public class JedisUtils
     /**
      * 移除Map缓存中的值
      * @param key 键
-     * @param value 值
+     * @param mapKey 值
      * @return
      */
     public static long mapObjectRemove(String key, String mapKey)
@@ -1016,7 +1017,7 @@ public class JedisUtils
     /**
      * 判断Map缓存中的Key是否存在
      * @param key 键
-     * @param value 值
+     * @param mapKey 值
      * @return
      */
     public static boolean mapExists(String key, String mapKey)
@@ -1042,7 +1043,7 @@ public class JedisUtils
     /**
      * 判断Map缓存中的Key是否存在
      * @param key 键
-     * @param value 值
+     * @param mapKey 值
      * @return
      */
     public static boolean mapObjectExists(String key, String mapKey)
@@ -1208,7 +1209,8 @@ public class JedisUtils
      */
     private static Jedis getConnection(String key)
     {
-    	Jedis jedis=pool.getResource().getShard(key);
+//    	Jedis jedis=pool.getResource().getShard(key);
+    	Jedis jedis=pool.getResource();
        /* Jedis jedis = null;
         try
         {

@@ -6,7 +6,7 @@
   <head>
     <title>menu</title>
    <base id="base" href="${contextPath}">  
-   <#include "/common/common.ftl">
+   <#include "../../common/common.ftl">
    <script type="text/javascript"  charset="UTF-8">
    var searchUrl = "${contextPath}/menu/list/data";
    var updateUrl = "${contextPath}/departments/update.do";
@@ -93,21 +93,21 @@
 				<table>
 						<tr>
 							<td>菜单名称:</td>
-							<td><input type="text" id="departmentcode" name="departmentcode" style="width:120px"/></td>
+							<td><input type="text" id="menuName" name="menuName" style="width:120px"/></td>
 							<td>菜单描述:</td>
-							<td><input type="text" id="departmentname" name="departmentname" style="width:120px"/></td>
+							<td><input type="text" id="menuDesc" name="menuDesc" style="width:120px"/></td>
 						</tr>
 						<tr>
 							<td>菜单连接:</td>
-							<td><input type="text" id="deptdescription" name="deptdescription" style="width:120px"/></td>
+							<td><input type="text" id="link" name="link" style="width:120px"/></td>
 							<td>菜单序号:</td>
-							<td><input type="text" id="remarks" name="remarks" style="width:120px"/></td>
+							<td><input type="text" id="order" name="order" style="width:120px"/></td>
 						</tr>
 						<tr>
 							<td>父菜单:</td>
-							<td><input type="text" id="operatorbankcode" name="operatorbankcode" style="width:120px"/></td>
+							<td><input type="text" id="parentMenuName" name="parentMenuName" style="width:120px"/></td>
 							<td>菜单序号:</td>
-							<td><input type="text" id="operatorcode" name="operatorcode" style="width:120px"/></td>
+							<td><input type="text" id="parentOrder" name="parentOrder" style="width:120px"/></td>
 						</tr>
 						
 				</table>

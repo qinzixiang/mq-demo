@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
 <title>index</title> 
 <base id="base" href="${contextPath}">  
-<#include "/common/common.ftl">
+<#include "../common/common.ftl">
 
 </head>  
 <body class="easyui-layout">

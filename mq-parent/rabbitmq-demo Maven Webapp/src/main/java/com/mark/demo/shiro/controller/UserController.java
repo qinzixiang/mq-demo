@@ -26,4 +26,9 @@ public class UserController {
 	public List<Menu> getMenuTop(){
 		return userService.getMenuTopLever();
 	}
+
+	@RequestMapping("/list")
+	public String list(){
+		return "admins/system/menu.ftl";
+	}
 }
