@@ -27,6 +27,7 @@ public class UserServiceImpl extends GenericServiceImpl<User> implements UserSer
 		super(userMapper);
 		this.userMapper=userMapper;
 	}
+
 	@Override
 	public List<Menu> getMenuTopLever() {
 		return userMapper.getMenuTopLever();

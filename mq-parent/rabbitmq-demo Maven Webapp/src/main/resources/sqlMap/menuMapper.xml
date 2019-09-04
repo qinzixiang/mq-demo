@@ -38,7 +38,6 @@
     		p.`order` as p_order
     		
     	 		from menu a left join menu p on a.pid=p.menuId
-    	 	
     	<where>
     		1=1
     		<if test="menuName!=null ">

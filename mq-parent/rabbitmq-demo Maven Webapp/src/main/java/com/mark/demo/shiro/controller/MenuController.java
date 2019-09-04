@@ -38,7 +38,7 @@ public class MenuController {
 		return  menuService.getMenuChildren(pid);
 	}
 	
-	@RequestMapping("/updateMenu")
+	@RequestMapping("/update")
 	@ResponseBody
 	public boolean updateMenu(Menu menu){
 		return menuService.updateMenu(menu);

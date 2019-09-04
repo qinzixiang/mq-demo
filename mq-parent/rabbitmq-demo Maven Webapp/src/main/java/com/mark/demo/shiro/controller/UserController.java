@@ -2,6 +2,9 @@ package com.mark.demo.shiro.controller;
 
 import java.util.List;
 
+import com.mark.demo.shiro.base.PaginateResult;
+import com.mark.demo.shiro.base.Pagination;
+import com.mark.demo.shiro.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +32,12 @@ public class UserController {
 
 	@RequestMapping("/list")
 	public String list(){
-		return "admins/system/menu.ftl";
+		return "admins/system/user.ftl";
 	}
+
+    @RequestMapping("/list/data")
+    @ResponseBody
+    public PaginateResult<User> listData(User user, Pagination pagination){
+        return userService.findPage(pagination, user);
+    }
 }

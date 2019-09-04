@@ -21,6 +21,7 @@ public abstract class GenericServiceImpl<T extends GenericEntity> implements Gen
      * @param entity
      * @return
      */
+    @Override
     public List<T> findList(T entity) {
         return dao.findList(entity);
     }
@@ -31,6 +32,7 @@ public abstract class GenericServiceImpl<T extends GenericEntity> implements Gen
      * @param refrencdId
      * @author chenjp
      */
+    @Override
     public int delete(String refrencdId) {
         return dao.delete(refrencdId);
     }
@@ -41,6 +43,7 @@ public abstract class GenericServiceImpl<T extends GenericEntity> implements Gen
      * @param entity
      * @return
      */
+    @Override
     public int insert(T entity) {
         return dao.insert(entity);
     }
@@ -52,6 +55,7 @@ public abstract class GenericServiceImpl<T extends GenericEntity> implements Gen
      * @return
      * @see public int delete(T entity)
      */
+    @Override
     public  int deleteByPrimaryKey(String refrenceid) {
         return dao.deleteByPrimaryKey(refrenceid);
     }
@@ -63,6 +67,7 @@ public abstract class GenericServiceImpl<T extends GenericEntity> implements Gen
      * @param entity
      * @return
      */
+    @Override
     public PaginateResult<T> findPage(Pagination page, T entity) {
         entity.setPagination(page);
         PaginateResult<T> pageResult = new PaginateResult<T>(page, dao.findList(entity));

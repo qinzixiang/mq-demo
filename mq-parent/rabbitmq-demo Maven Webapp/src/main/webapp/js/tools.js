@@ -491,17 +491,20 @@ function showUpdate(jsonParam) {
     var data = rows[0];
     console.log(data);
     $(jsonParam).attr('data', data);
-    jsonParam.preHandler = function (jsonParam) {
-        _setValue($('#addForm').find("#menuName"), jsonParam.data.menuName)
-        _setValue($('#addForm').find("#menuDesc"), jsonParam.data.menuDesc)
-        _setValue($('#addForm').find("#link"), jsonParam.data.link)
-        _setValue($('#addForm').find("#order"), jsonParam.data.order)
-        _setValue($('#addForm').find("#parentMenuName"), jsonParam.data.parent.menuName)
-        _setValue($('#addForm').find("#parentOrder"), jsonParam.data.parent.order)
+    if (jsonParam.title == '修改菜单') {
+        jsonParam.preHandler = function (jsonParam) {
+            _setValue($('#addForm').find("#menuName"), jsonParam.data.menuName);
+            _setValue($('#addForm').find("#menuDesc"), jsonParam.data.menuDesc);
+            _setValue($('#addForm').find("#link"), jsonParam.data.link);
+            _setValue($('#addForm').find("#order"), jsonParam.data.order);
+            _setValue($('#addForm').find("#parentMenuName"), jsonParam.data.parent.menuName);
+            _setValue($('#addForm').find("#parentOrder"), jsonParam.data.parent.order);
+        }
     }
     //更新前处理
-    if (isFunction(jsonParam.preHandler))
-        jsonParam.preHandler(jsonParam);
+    if (isFunction(jsonParam.preHandler)){
+        jsonParam.preHandler(jsonParam)
+    }
     else
         setFormValue("addForm", data);
     setReadonly(jsonParam.readonlyFields);

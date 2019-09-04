@@ -9,9 +9,9 @@
    <#include "../../common/common.ftl">
    <script type="text/javascript"  charset="UTF-8">
    var searchUrl = "${contextPath}/menu/list/data";
-   var updateUrl = "${contextPath}/departments/update.do";
-   var insertUrl = "${contextPath}/departments/insert.do";
-   var deleteUrl = "${contextPath}/departments/delete.do";
+   var updateUrl = "${contextPath}/menu/update";
+   var insertUrl = "${contextPath}/menu/insert";
+   var deleteUrl = "${contextPath}/menu/delete";
 	$(function() {
 	    $('#dataList').datagrid({  
 	        title:'列表',  
@@ -71,8 +71,8 @@
 			<div id="tb" style="padding:5px;height:auto">
 		<div style="margin-bottom:5px">
 			<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="showAddwindow({title:'新增'})">新增</a>|
-			<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="showUpdate({title:'修改',readonlyFields:['departmentcode']});">修改</a>|
-			<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="delRowData({id:'departmentcode'});">删除</a>
+			<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="showUpdate({title:'修改菜单',readonlyFields:['menuName']});">修改</a>|
+			<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="delRowData({id:'id'});">删除</a>
 		</div>
 		<div>
 			<form  id='searchForm' action="" method="post">
@@ -109,11 +109,9 @@
 							<td>菜单序号:</td>
 							<td><input type="text" id="parentOrder" name="parentOrder" style="width:120px"/></td>
 						</tr>
-						
 				</table>
 			</form>
 		</div>
 	</div>
-	
   </body>
 </html>
